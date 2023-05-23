@@ -11,7 +11,6 @@ def text_indentation(text):
         each of these characters: ., ?, and : """
     if type(text) is not str:
         raise TypeError(ErrMsg)
-
     for i in range(len(text)):
         if i == len(text) - 1:
             print(text[i])
