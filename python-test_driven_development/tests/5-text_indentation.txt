@@ -3,8 +3,11 @@
 (string as input)
 >>> text_indentation("Have you tried coffee? I like many types: iced, hot, latte. No matter what I have I always have cream.")
 Have you tried coffee?
+<BLANKLINE>
 I like many types:
+<BLANKLINE>
 iced, hot, latte.
+<BLANKLINE>
 No matter what I have I always have cream.
 
 (int as input)
@@ -35,7 +38,7 @@ TypeError: text must be a string
 >>> text_indentation()
 Traceback (most recent call last):
     ...
-TypeError: text must be a string
+TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 (tuple as input)
 >>> text_indentation((1, 2, 3))
