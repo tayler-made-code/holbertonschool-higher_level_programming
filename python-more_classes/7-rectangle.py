@@ -28,6 +28,18 @@ class Rectangle:
         """
         return self.__height
 
+    @property
+    def print_symbol(self):
+        """gets print_symbol of rectangle
+        """
+        self.__print_symbol = value
+
+    @print_symbol.setter
+    def print_symbol(self, value):
+        """ sets print_symbol of rectangle
+        """
+        self.__print_symbol = value
+
     @width.setter
     def width(self, value):
         """ sets width of rectangle
