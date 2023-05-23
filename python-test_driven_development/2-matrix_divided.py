@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """ function that divides all elements of a matrix """
 
+
 ErrMsg01 = "matrix must be a matrix (list of lists) of integers/floats"
 ErrMsg02 = "Each row of the matrix must have the same size"
 ErrMsg03 = "div must be a number"
 ErrMsg04 = "division by zero"
+
 
 def matrix_divided(matrix, div):
     """ function that divides all elements of a matrix """
