@@ -8,6 +8,7 @@ ErrMsg03 = "size must be an integer"
 
 
 def print_square(size):
+    """ function that prints a square with the character # """
     if size is None:
         raise TypeError(ErrMsg01)
     if type(size) != int:
