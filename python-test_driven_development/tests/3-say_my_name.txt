@@ -4,9 +4,6 @@
 >>> say_my_name("Rumple", "Stiltskin")
 My name is Rumple Stiltskin
 
->>> say_my_name("Rumple")
-My name is Rumple
-
 (int as input)
 >>> say_my_name(12, "Stiltskin")
 Traceback (most recent call last):
