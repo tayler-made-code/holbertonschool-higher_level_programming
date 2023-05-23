@@ -15,7 +15,6 @@ class Rectangle:
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        Rectangle.print_symbol = "#"
 
     @property
     def width(self):
@@ -64,9 +63,9 @@ class Rectangle:
     def __str__(self):
         """ returns a string of # as a rectangle
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
-        return (("{}".format(self.print_symbol) * self.width + "\n") * self.height)[:-1]
+        return ((str(self.print_symbol) * self.__width + '\n') * self.__height)[:-1]
 
     def __print__(self):
         """prints rectangle
