@@ -7,6 +7,7 @@ class Rectangle:
     """ class Rectangle that defines a rectangle
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """ initializes a rectangle
@@ -27,18 +28,6 @@ class Rectangle:
         """ gets height of rectangle
         """
         return self.__height
-
-    @property
-    def print_symbol(self):
-        """gets print_symbol of rectangle
-        """
-        self.__print_symbol = value
-
-    @print_symbol.setter
-    def print_symbol(self, value):
-        """ sets print_symbol of rectangle
-        """
-        self.__print_symbol = value
 
     @width.setter
     def width(self, value):
