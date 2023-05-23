@@ -3,17 +3,13 @@
     each of these characters: ., ?, and : """
 
 
-ErrMsg = "text must be a string"
-
-
 def text_indentation(text):
-    """ function that prints a text with 2 new lines after/
-        each of these characters: ., ?, and : """
+    """ prints a string of text with 2 new lines after '.', '?', and ':' """
     if type(text) is not str:
-        raise TypeError(ErrMsg)
-    for i in range(len(text)):
-        if text[i] == '.' or text [i] == '?' or text [i] == ':':
-            print(text[i])
-            print()
+        raise TypeError("text must be a string")
+    for char in text:
+        if char == '.' or char == '?' or char == ':':
+            print(char, end="")
+            print("\n")
         else:
-            print(text[i], end="")
+            print(char, end="")
