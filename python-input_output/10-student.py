@@ -17,5 +17,5 @@ class Student:
         if not attrs:
             return vars(self)
         
-        return ({key: value for key, value in vars(self).items() \
+        return ({key: value for key, value in self.__dict__.items() \
                  if key in attrs})
