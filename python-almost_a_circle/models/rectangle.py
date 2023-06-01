@@ -8,31 +8,31 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         ''' Constructor '''
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
         super().__init__(id)
 
     @property
     def width(self):
         ''' gets width of rectangle '''
-        return self.__width
+        return self.width
 
     @property
     def height(self):
         ''' gets height of rectangle '''
-        return self.__height
+        return self.height
 
     @property
     def x(self):
         ''' gets x of rectangle '''
-        return self.__x
+        return self.x
 
     @property
     def y(self):
         ''' gets y of rectangle '''
-        return self.__y
+        return self.y
 
     @width.setter
     def width(self, value):
