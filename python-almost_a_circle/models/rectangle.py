@@ -8,6 +8,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         ''' Constructor '''
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.integer_validator("x", x)
+        self.integer_validator("y", y)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -69,3 +73,12 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def integer_validator(self, name, value):
+        ''' validates a value during instantiation '''
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0 and (name == "width" or name == "height"):
+            raise ValueError("{} must be > 0".format(name))
+        if value < 0 and (name == "x" or name == "y"):
+            raise ValueError("{} must be >= 0".format(name))
