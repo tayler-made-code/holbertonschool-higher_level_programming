@@ -7,10 +7,13 @@ class Square(Rectangle):
     ''' This class defines a Square inherited from Rectangle '''
 
     def __init__(self, size, x=0, y=0, id=None):
-        super().__init__(id, x, y, width, height)
-        self.size = 
+        ''' Construction Juntction Square's my function! '''
+        self.integer_validator("size", size)
+        self.__size = width = height = size
+        super().__init__(width, height, x, y, id)
 
     def __str__(self):
         ''' returns string representation of Square '''
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-        self.size)
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width
+            )
