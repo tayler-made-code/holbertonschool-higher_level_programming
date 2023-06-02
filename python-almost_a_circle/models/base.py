@@ -19,7 +19,7 @@ class Base:
         ''' returns JSON srting representation of list_dictionaries '''
         import json
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
+            return "[{}]"
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -29,7 +29,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "w") as file:
             if list_objs is None:
-                file.write("[]")
+                file.write("[{}]")
             else:
                 list_dicts = []
                 for obj in list_objs:
@@ -41,5 +41,5 @@ class Base:
         ''' returns the list of the JSON string representation json_string '''
         import json
         if json_string is None or len(json_string) == 0:
-            return "[]"
+            return []
         return json.loads(json_string)
