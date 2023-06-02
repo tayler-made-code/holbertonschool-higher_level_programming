@@ -12,10 +12,10 @@ class Rectangle(Base):
         self.integer_validator("height", height)
         self.integer_validator("x", x)
         self.integer_validator("y", y)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
