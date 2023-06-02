@@ -8,12 +8,12 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         ''' Construction Juntction Square's my function! '''
-        self.integer_validator("size", size)
+        self.integer_validator("width", size)
         self.size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
         ''' returns string representation of Square '''
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.size
+                self.id, self.x, self.y, self.size
             )
