@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 ''' Unittest for class Base '''
-from contextlib import AbstractContextManager
-from typing import Any
+import sys
+import io
+from contextlib import redirect_stdout
 import unittest
 from models.rectangle import Rectangle
 
@@ -109,6 +110,36 @@ class TestTangles(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-    def test_tangle_load_from_file_does_not_exist(self):
+    def test_tangle_load_from_file(self):
         self.assertEqual(Rectangle.load_from_file(), [])
 
+    def test_tangle_display(self):
+        testangle = Rectangle(2, 3, 1, 1)
+        expected_output = "\n" \
+                            " ##\n" \
+                            " ##\n" \
+                            " ##\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            testangle.display()
+            output = buf.getvalue()
+        self.assertEqual(output, expected_output)
+
+    def test_tangle_display_without_y(self):
+        testangle = Rectangle(2, 3, 1, 0)
+        expected_output = " ##\n" \
+                            " ##\n" \
+                            " ##\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            testangle.display()
+            output = buf.getvalue()
+        self.assertEqual(output, expected_output)
+
+    def test_tangle_display_without_x_and_y(self):
+        testangle = Rectangle(2, 3, 0, 0)
+        expected_output = "##\n" \
+                            "##\n" \
+                            "##\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            testangle.display()
+            output = buf.getvalue()
+        self.assertEqual(output, expected_output)
