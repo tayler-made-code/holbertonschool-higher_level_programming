@@ -4,160 +4,74 @@ import unittest
 from models.square import Square
 
 
-class TestSquareArea(unittest.TestCase):
-    ''' Test cases for area '''
+class TestSquamples(unittest.TestCase):
+    ''' Unittest for class Square '''
 
-    def test_simple_area(self):
-        squample = Square(3)
-        self.assertEqual(squample.area(), 9)
-
-    def test_area_with_args(self):
-        squample = Square(8, 0, 0, 12)
-        self.assertEqual(squample.area(), 64)
+    def test_simple_squample(self):
+        squample = Square(7)
+        self.assertEqual(squample.size, 7)
     
-    def test_area_with_string(self):
-        squample = Square(4)
-        with self.assertRaises(TypeError):
-            squample.area("1")
-
-class TestSizeSetter(unittest.TestCase):
-    ''' Test cases for size setter '''
-
-    def test_size_setter(self):
-        squample = Square(3)
-        squample.size = 5
-        self.assertEqual(squample.size, 5)
-
-    def test_size_setter_with_args(self):
-        squample = Square(8, 0, 0, 12)
-        squample.size = 10
-        self.assertEqual(squample.size, 10)
-
-    def test_size_setter_with_string(self):
-        squample = Square(4)
-        with self.assertRaises(TypeError):
-            squample.size = "1"
-
-    def test_size_setter_with_negative(self):
-        squample = Square(4)
-        with self.assertRaises(ValueError):
-            squample.size = -13
-
-    def test_size_setter_with_zero(self):
-        squample = Square(4)
-        with self.assertRaises(ValueError):
-            squample.size = 0
-
-class TestXSetter(unittest.TestCase):
-    ''' Test cases for x setter '''
-
-    def test_x_setter(self):
-        squample = Square(3, 5)
-        self.assertEqual(squample.x, 5)
-
-    def test_x_setter_with_args(self):
-        squample = Square(1, 3, 3, 7)
+    def test_squample_with_args(self):
+        squample = Square(13, 3, 7, 89)
+        self.assertEqual(squample.size, 13)
         self.assertEqual(squample.x, 3)
-
-    def test_x_setter_with_string(self):
-        squample = Square(4)
-        with self.assertRaises(TypeError):
-            squample.x = "Thirteen"
-
-    def test_x_setter_with_negative(self):
-        squample = Square(4)
-        with self.assertRaises(ValueError):
-            squample.x = -13
-
-    def test_x_setter_with_zero(self):
-        squample = Square(4)
-        squample.x = 0
-        self.assertEqual(squample.x, 0)
-        squample = Square(4)
-        with self.assertRaises(TypeError):
-            squample.x()
-
-class TestYSetter(unittest.TestCase):
-    ''' Test cases for y setter '''
-
-    def test_y_setter(self):
-        squample = Square(3, 5, 7)
         self.assertEqual(squample.y, 7)
+        self.assertEqual(squample.id, 89)
 
-    def test_y_setter_with_args(self):
-        squample = Square(1, 3, 3, 7)
-        self.assertEqual(squample.y, 3)
-
-    def test_y_setter_with_string(self):
-        squample = Square(1, 3, 3, 7)
+    def test_squample_string_size(self):
         with self.assertRaises(TypeError):
-            squample.y = "Thirteen"
+            squample = Square("13", 3, 7, 89)
 
-    def test_y_setter_with_negative(self):
-        squample = Square(1, 3, 3, 7)
+    def test_squample_string_x(self):
+        with self.assertRaises(TypeError):
+            squample = Square(13, "3", 7, 89)
+    
+    def test_squample_string_y(self):
+        with self.assertRaises(TypeError):
+            squample = Square(13, 3, "7", 89)
+
+    def test_squample_negative_size(self):
         with self.assertRaises(ValueError):
-            squample.y = -13
-
-    def test_y_setter_with_zero(self):
-        squample = Square(1, 3, 3, 7)
-        squample.y = 0
-        self.assertEqual(squample.y, 0)
-
-        squample = Square(4)
-        with self.assertRaises(TypeError):
-            squample.y()
-
-class TestSTR(unittest.TestCase):
-    ''' Test cases for __str__ '''
-    def test_str(self):
-        squample = Square(1, 3, 3, 7)
-        self.assertEqual(squample.__str__(), "[Square] (7) 3/3 - 1")
+            squample = Square(-13, 3, 7, 89)
     
-    def test_str_with_string(self):
-        squample = Square(1, 3, 3, 7)
-        with self.assertRaises(TypeError):
-            squample.__str__("1")
-
-class TestSquareUpdate(unittest.TestCase):
-    ''' Test cases for update '''
-  
-    def test_update(self):
-        squample = Square(1, 3, 3, 7)
-        squample.update(9, 8, 7, 6)
-        self.assertEqual(squample.__str__(), "[Square] (9) 7/6 - 8")
-    
-    def test_update_with_kwargs(self):
-        squample = Square(1, 3, 3, 7)
-        squample.update(id=9, size=8, x=7, y=6)
-        self.assertEqual(squample.__str__(), "[Square] (9) 7/6 - 8")
-    
-    def test_update_with_args_and_kwargs(self):
-        squample = Square(1, 3, 3, 7)
-        squample.update(9, 8, 7, 6, id=10, size=9, x=8, y=7)
-        self.assertEqual(squample.__str__(), "[Square] (9) 7/6 - 8")
-    
-    def test_update_with_no_args(self):
-        squample = Square(1, 3, 3, 7)
-        squample.update()
-        self.assertEqual(squample.__str__(), "[Square] (7) 3/3 - 1")
-    
-    def test_update_with_string(self):
-        squample = Square(1, 3, 3, 7)
-        with self.assertRaises(TypeError):
-            squample.update("Nine", "Eight", "Seven", "Six")
-    
-    def test_update_with_negative(self):
-        squample = Square(1, 3, 3, 7)
+    def test_squample_negative_x(self):
         with self.assertRaises(ValueError):
-            squample.update(-9, -8, -7, -6)
+            squample = Square(13, -3, 7, 89)
     
-    def test_update_with_zero(self):
-        squample = Square(1, 3, 3, 7)
+    def test_squample_negative_y(self):
         with self.assertRaises(ValueError):
-            squample.update(0, 0, 0, 0)
-
-    def test_update_with_strings(self):
+            squample = Square(13, 3, -7, 89)
+    
+    def test_squample_zero_size(self):
+        with self.assertRaises(ValueError):
+            squample = Square(0, 3, 7, 89)
+    
+    def test_squample_str_function(self):
+        squample = Square(13, 3, 7, 89)
+        self.assertEqual(squample.__str__(), "[Square] (89) 3/7 - 13")
+    
+    def test_squample_to_dictionary(self):
+        squample = Square(13, 3, 7, 89)
+        self.assertEqual(squample.to_dictionary(), {'id': 89, 'size': 13, 'x': 3, 'y': 7})
+    
+    def test_squample_update_args(self):
         squample = Square(10, 10, 10, 10)
-        with self.assertRaises(TypeError):
-            squample.update("One", "Three", "Three", "Seven")
-
+        squample.update(13, 3, 7, 89)
+        self.assertEqual(squample.__str__(), "[Square] (13) 7/89 - 3")
+    
+    def test_squample_update_kwargs(self):
+        squample = Square(10, 10, 10, 10)
+        squample.update(size=13, x=3, y=7, id=89)
+        self.assertEqual(squample.__str__(), "[Square] (89) 3/7 - 13")
+    
+    def test_squample_area(self):
+        squample = Square(13, 3, 7, 89)
+        self.assertEqual(squample.area(), 169)
+    
+    def test_squample_create(self):
+        squample = Square.create(**{'id': 89, 'size': 13, 'x': 3, 'y': 7})
+        self.assertEqual(squample.size, 13)
+        self.assertEqual(squample.x, 3)
+        self.assertEqual(squample.y, 7)
+        self.assertEqual(squample.id, 89)
+    
