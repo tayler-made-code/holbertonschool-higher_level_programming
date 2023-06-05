@@ -31,7 +31,7 @@ class TestSizeSetter(unittest.TestCase):
     def test_size_setter_with_string(self):
         squample = Square(4)
         with self.assertRaises(TypeError):
-            squample.size = "Thirteen"
+            squample.size = "1"
 
     def test_size_setter_with_negative(self):
         squample = Square(4)
