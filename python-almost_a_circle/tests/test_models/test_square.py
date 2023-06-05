@@ -84,17 +84,17 @@ class TestYSetter(unittest.TestCase):
         self.assertEqual(squample.y, 3)
 
     def test_y_setter_with_string(self):
-        squample = Square(4)
+        squample = Square(1, 3, 3, 7)
         with self.assertRaises(TypeError):
             squample.y = "Thirteen"
 
     def test_y_setter_with_negative(self):
-        squample = Square(4)
+        squample = Square(1, 3, 3, 7)
         with self.assertRaises(ValueError):
             squample.y = -13
 
     def test_y_setter_with_zero(self):
-        squample = Square(4)
+        squample = Square(1, 3, 3, 7)
         squample.y = 0
         self.assertEqual(squample.y, 0)
 
