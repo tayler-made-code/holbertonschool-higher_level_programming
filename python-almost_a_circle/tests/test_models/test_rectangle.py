@@ -90,3 +90,11 @@ class TestTangles(unittest.TestCase):
     def test_tangle_area(self):
         testangle = Rectangle(3, 2)
         self.assertEqual(testangle.area(), 6)
+
+    def test_tangle_create(self):
+        testangle = Rectangle.create(**{'x': 3, 'y': 7, 'id': 89, 'height': 3, 'width': 1})
+        self.assertEqual(testangle.width, 1)
+        self.assertEqual(testangle.height, 3)
+        self.assertEqual(testangle.x, 3)
+        self.assertEqual(testangle.y, 7)
+        self.assertEqual(testangle.id, 89)
