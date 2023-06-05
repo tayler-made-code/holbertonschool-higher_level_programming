@@ -70,14 +70,23 @@ class TestTangles(unittest.TestCase):
         self.assertEqual(testangle.to_dictionary(), {'x': 3, 'y': 7, 'id': 89, 'height': 3, 'width': 1})
     
     def test_tangle_update(self):
-        testangle = Rectangle(1, 3, 3, 7, 89)
-        testangle.update(1, 2, 3, 4, 5)
-        self.assertEqual(testangle.__str__(), "[Rectangle] (1) 4/5 - 2/3")
+        testangle = Rectangle(1, 2, 3, 4, 5)
+        testangle.update(1, 3, 3, 7, 89)
+        self.assertEqual(testangle.width, 3)
+        self.assertEqual(testangle.height, 3)
+        self.assertEqual(testangle.x, 7)
+        self.assertEqual(testangle.y, 89)
+        self.assertEqual(testangle.id, 1)
     
     def test_tangle_update_kwargs(self):
         testangle = Rectangle(1, 2, 3, 4, 5)
         testangle.update(height=1, width=3, x=3, y=7, id=89)
-    
+        self.assertEqual(testangle.width, 3)
+        self.assertEqual(testangle.height, 1)
+        self.assertEqual(testangle.x, 3)
+        self.assertEqual(testangle.y, 7)
+        self.assertEqual(testangle.id, 89)
+
     def test_tangle_area(self):
         testangle = Rectangle(3, 2)
         self.assertEqual(testangle.area(), 6)
