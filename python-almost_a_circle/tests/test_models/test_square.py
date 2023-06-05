@@ -15,6 +15,11 @@ class TestSquareArea(unittest.TestCase):
         squample = Square(8, 0, 0, 12)
         self.assertEqual(squample.area(), 64)
 
+    def test_area_with_string(self):
+        squample = Square(4)
+        with self.assertRaises(TypeError):
+            squample.area("1")
+
 class TestSizeSetter(unittest.TestCase):
     ''' Test cases for size setter '''
 
