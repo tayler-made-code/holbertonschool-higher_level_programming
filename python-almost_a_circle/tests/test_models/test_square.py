@@ -113,6 +113,11 @@ class TestSTR(unittest.TestCase):
         squample = Square(1, 3, 3, 7)
         self.assertEqual(squample.__str__(), "[Square] (7) 3/3 - 1")
 
+    def test_str_with_string(self):
+        squample = Square(1, 3, 3, 7)
+        with self.assertRaises(TypeError):
+            squample.__str__("1")
+
 class TestSquareUpdate(unittest.TestCase):
     ''' Test cases for update '''
   
