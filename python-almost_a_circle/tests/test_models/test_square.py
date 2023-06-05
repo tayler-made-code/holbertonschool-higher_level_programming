@@ -145,3 +145,8 @@ class TestSquareUpdate(unittest.TestCase):
         squample = Square(1, 3, 3, 7)
         with self.assertRaises(ValueError):
             squample.update(0, 0, 0, 0)
+
+    def test_update_with_strings(self):
+        squample = Square(10, 10, 10, 10)
+        with self.assertRaises(TypeError):
+            squample.update("One", "Three", "Three", "Seven")
