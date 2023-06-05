@@ -78,4 +78,25 @@ class TestSquamples(unittest.TestCase):
         self.assertEqual(squample.x, 3)
         self.assertEqual(squample.y, 7)
         self.assertEqual(squample.id, 89)
+
+    def test_squample_save_to_file_empty(self):
+        squample = Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
     
+    def test_squample_save_to_file_None(self):
+        squample = Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_squample_save_to_file(self):
+        squample = Square.save_to_file([Square(13)])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[{"id": 1, "size": 13, "x": 0, "y": 0}]')
+
+    def test_squample_load_from_file_exists(self):
+        Square.save_to_file([Square(13)])
+        self.assertEqual(Square.load_from_file(), [Square(13)])
+
+    def test_squample_load_from_file_not_exists(self):
+        self.assertEqual(Square.load_from_file(), [])
