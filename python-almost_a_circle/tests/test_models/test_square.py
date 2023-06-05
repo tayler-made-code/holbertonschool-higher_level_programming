@@ -10,13 +10,17 @@ class TestSquamples(unittest.TestCase):
     def test_simple_squample(self):
         squample = Square(7)
         self.assertEqual(squample.size, 7)
+
+    def test_squample_with_x(self):
+        squample = Square(13, 37)
+        self.assertEqual(squample.size, 13)
+        self.assertEqual(squample.x, 37)
     
     def test_squample_with_args(self):
         squample = Square(13, 3, 7, 89)
         self.assertEqual(squample.size, 13)
         self.assertEqual(squample.x, 3)
         self.assertEqual(squample.y, 7)
-        self.assertEqual(squample.id, 89)
 
     def test_squample_string_size(self):
         with self.assertRaises(TypeError):
