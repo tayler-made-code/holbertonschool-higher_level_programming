@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' Unittest for integer_validator '''
 import unittest
-from models.basdde import Base
+from models.base import Base
 
 
 class TestSaveToFile(unittest.TestCase):
