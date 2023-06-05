@@ -14,7 +14,7 @@ class TestSquareArea(unittest.TestCase):
     def test_area_with_args(self):
         squample = Square(8, 0, 0, 12)
         self.assertEqual(squample.area(), 64)
-
+    
     def test_area_with_string(self):
         squample = Square(4)
         with self.assertRaises(TypeError):
@@ -112,7 +112,7 @@ class TestSTR(unittest.TestCase):
     def test_str(self):
         squample = Square(1, 3, 3, 7)
         self.assertEqual(squample.__str__(), "[Square] (7) 3/3 - 1")
-
+    
     def test_str_with_string(self):
         squample = Square(1, 3, 3, 7)
         with self.assertRaises(TypeError):
@@ -160,3 +160,4 @@ class TestSquareUpdate(unittest.TestCase):
         squample = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             squample.update("One", "Three", "Three", "Seven")
+
