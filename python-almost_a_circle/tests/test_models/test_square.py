@@ -17,7 +17,7 @@ class TestSquamples(unittest.TestCase):
         self.assertEqual(squample.x, 37)
     
     def test_squample_with_args(self):
-        squample = Square(13, 3, 7, 89)
+        squample = Square(13, 3, 7)
         self.assertEqual(squample.size, 13)
         self.assertEqual(squample.x, 3)
         self.assertEqual(squample.y, 7)
