@@ -145,3 +145,9 @@ class TestTangles(unittest.TestCase):
             testangle.display()
             output = buf.getvalue()
         self.assertEqual(output, expected_output)
+
+    def test_tangle_save_to_file_args(self):
+        testangle = Rectangle(1, 3, 3, 7, 89)
+        Rectangle.save_to_file([testangle])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[{\"id\": 89, \"width\": 1, \"height\": 3, \"x\": 3, \"y\": 7}]")    
