@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Unittest for class Square '''
 import unittest
+import json
 from models.square import Square
 
 

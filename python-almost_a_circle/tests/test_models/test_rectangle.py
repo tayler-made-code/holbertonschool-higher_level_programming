@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 ''' Unittest for class Base '''
 import sys
+import json
 import io
+from unittest.mock import patch
 from contextlib import redirect_stdout
 import unittest
 from models.rectangle import Rectangle
