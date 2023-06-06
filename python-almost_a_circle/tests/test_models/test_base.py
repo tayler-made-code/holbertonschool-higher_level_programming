@@ -62,3 +62,6 @@ class TestBase(unittest.TestCase):
         list_input = Base.from_json_string(json_string)
         list_output = []
         self.assertEqual(list_input, list_output)
+
+if __name__ == '__main__':
+    unittest.main()

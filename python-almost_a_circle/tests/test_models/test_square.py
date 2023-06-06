@@ -87,3 +87,6 @@ class TestSquamples(unittest.TestCase):
         squample = Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+
+if __name__ == '__main__':
+    unittest.main()
