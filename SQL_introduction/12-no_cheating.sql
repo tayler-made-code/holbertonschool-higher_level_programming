@@ -1,5 +1,4 @@
 -- script that updates the score of Bob, the cheater, to 10 in the second_table
-FROM second_table
+UPDATE second_table
+SET score = 10
 WHERE name = 'Bob';
-INSERT INTO second_table.score
-VALUES (10);
